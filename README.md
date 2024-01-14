@@ -63,6 +63,16 @@ pragma('LinterFramework', 'ignore:unused-pure-expression');
 1 + 1;
 ```
 
+Q: Why would this string-based system be better than actual attributes?
+ - A: If your source code analyzer is a dev-dependency, you'd need to either:
+   - Publish the attributes in a different package, to make production code
+     typecheck without the source analyzer in the vendor/ directory.
+   - Deploy the source analyzer code to production.
+ - The first user of this standard is [PhaLinters](https://github.com/hershel-theodore-layton/portable-hack-ast-linters)
+   This is a dev-dependency with a single directive at the time of writing.
+   The `pragma(...)` directive is preferred over the `Pragmas` annotation.
+   By shipping `pragma` as standalone, PhaLinters can be a proper dev-dependency.
+
 If you wish to accept `pragma(...)` directives and `<<Pragmas(vec[...])>>`
 attributes in your own source analyzers, read [pragma.hack](./src/pragma.hack)
 for the details for this informal standard.
