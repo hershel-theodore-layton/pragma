@@ -3,7 +3,7 @@
   "description": "A structured way of embedding source analyzer metadata in Hack",
   "license": "MIT",
   "require": {
-    "hhvm": "^4.102"
+    "hhvm": ">=4.102"
   },
   "require-dev": {},
   "scripts": {
