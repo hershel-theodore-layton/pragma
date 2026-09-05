@@ -44,7 +44,7 @@ They are general replacements for structured comments.
 `@lint-ignore` isn't a normal comment from the perspective of some tool.
 It suppresses a lint error from being raised for an unused pure expression.
 
-I subscribe wholehartedly to the following quote from the [CppCoreGuidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines):
+I subscribe wholeheartedly to the following quote from the [CppCoreGuidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines):
 
 ```
 Compilers don’t read comments ... and neither do many programmers (consistently).
@@ -56,7 +56,7 @@ to skip reading the comments. It will instill fear for removing useless comments
 since some tool might rely on them.
 
 The idea behind the `pragma(...)` directive is to eliminate these comments.
-The following code block expersses the same intent.
+The following code block expresses the same intent.
 
 ```HACK
 pragma('LinterFramework', 'ignore:unused-pure-expression');

@@ -7,11 +7,11 @@ namespace HTL\Pragma;
  * The typechecker looks for hh_fixme and hh_ignore_error directives.
  * HHAST looks for hhast_ignore_error, hhast_ignore_all, and hhast_fixme directives.
  *
- * I don't like the state of things, because nothings checks the comments.
+ * I don't like the state of things, because nothing checks the comments.
  * It is unclear if a comment is a directive for something, a normal comment,
  * or worst of all, a dangling directive that is silently misinforming you.
  *
- * I am not going to change the typechecker to stop using comment for suppressions,
+ * I am not going to change the typechecker to stop using comments for suppressions,
  * but userspace libraries are welcome to adopt this informal standard.
  *
  * There are two ways to invoke a pragma.
@@ -19,19 +19,19 @@ namespace HTL\Pragma;
  *  - The `<<Pragmas(vec['one', 'ok=1'], vec['two', 'ok=false'])>>` attribute.
  *
  * The pragma directive accepts any number of arguments.
- * The 1st addresses a library, and the 2nd to last are implementation defined.
+ * The 1st addresses a library, and the 2nd and subsequent are implementation-defined.
  * These take effect for the lines they are on and the next line.
  *
  * The attribute takes any number of vecs, each of which is a directive.
  * The scope is from attribute to closing curly brace if atop a class.
  * A file attribute `<<file: Pragmas(...)>>` affects the entire file.
  *
- * A library that uses pragma's is required to emit a diagnostic for pragmas
+ * A library that uses pragmas is required to emit a diagnostic for pragmas
  * that start with the library name and that can not be parsed or are invalid.
- * This prevents broken directive and attributes from hanging around.
+ * This prevents broken directives and attributes from hanging around.
  *
  * You must use a canonical use statement for the pragma directive and attribute.
- * Using a Pragma namespace and using qualfied names is not allowed.
+ * Using a Pragma namespace and using qualified names is not allowed.
  * `use namespace HTL\Pragma; ... Pragma\pragma(...) ... <<Pragma\Pragmas(...)>>`
  * Using `use function HTL\Pragma\pragma as not_pragma` is also not allowed.
  *
